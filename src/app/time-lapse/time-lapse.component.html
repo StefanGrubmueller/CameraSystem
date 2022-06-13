@@ -1,0 +1,37 @@
+<div class="time-lapse">
+  <div class="record-time">
+    <p>TIME</p>
+    <button (click)="setTimeMode('SECONDS')" *ngIf="timeMode!=='SECONDS'" mat-button>Seconds</button>
+    <button (click)="setTimeMode('SECONDS')" *ngIf="timeMode==='SECONDS'" mat-raised-button>Seconds</button>
+    <button (click)="setTimeMode('MINUTES')" *ngIf="timeMode!=='MINUTES'" mat-button>Minutes</button>
+    <button (click)="setTimeMode('MINUTES')" *ngIf="timeMode==='MINUTES'" mat-raised-button>Minutes</button>
+  </div>
+
+  <mat-slider (ngModelChange)="onTimeLapseLength('SECONDS', $event)"
+              [max]="60"
+              [min]="0"
+              [ngModel]="lengthInSeconds"
+              class="time-slider"
+              thumbLabel="true">
+  </mat-slider>
+
+  <div class="record-time">
+    <p> INTERVALL</p>
+    <button (click)="setIntervallMode('SECONDS')" *ngIf="intervallMode!=='SECONDS'" mat-button>Seconds</button>
+    <button (click)="setIntervallMode('SECONDS')" *ngIf="intervallMode==='SECONDS'" mat-raised-button>Seconds</button>
+    <button (click)="setIntervallMode('MINUTES')" *ngIf="intervallMode!=='MINUTES'" mat-button>Minutes</button>
+    <button (click)="setIntervallMode('MINUTES')" *ngIf="intervallMode==='MINUTES'" mat-raised-button>Minutes</button>
+  </div>
+  <mat-slider (ngModelChange)="onIntervall($event)"
+              [max]="60"
+              [min]="0"
+              [ngModel]="intervall"
+              class="time-slider"
+              thumbLabel="true">
+  </mat-slider>
+
+  <div class="start-cancel">
+    <button (click)="setTimeLapse()" mat-raised-button>START</button>
+    <button (click)="onCancel()" mat-raised-button>CANCEL</button>
+  </div>
+</div>

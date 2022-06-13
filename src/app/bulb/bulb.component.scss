@@ -1,0 +1,21 @@
+.bulb {
+  display: flex;
+  margin-top: 1em;
+
+  p {
+    text-transform: uppercase;
+    flex: 1;
+    white-space: nowrap;
+  }
+  .mat-button-base {
+    text-align: center;
+  }
+
+
+}
+
+.mat-slider {
+  flex: 1;
+  margin-top: 2em;
+  width: 100%;
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestComponent } from './test.component';
+import { TimeLapseComponent } from './time-lapse.component';
 
-describe('TestComponent', () => {
-  let component: TestComponent;
-  let fixture: ComponentFixture<TestComponent>;
+describe('TimeLapseComponent', () => {
+  let component: TimeLapseComponent;
+  let fixture: ComponentFixture<TimeLapseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestComponent ]
+      declarations: [ TimeLapseComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TestComponent);
+    fixture = TestBed.createComponent(TimeLapseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

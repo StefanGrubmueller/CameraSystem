@@ -1,0 +1,29 @@
+.time-lapse {
+  margin-top: 1em;
+}
+
+
+
+.record-time {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+
+  p {
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  .mat-button-base {
+    flex: 0.5;
+  }
+
+}
+
+.time-lapse .mat-slider-horizontal {
+  width: 100%;
+}
+
+.time-slider {
+  margin: 2em 0;
+}
