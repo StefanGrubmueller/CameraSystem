@@ -1,0 +1,19 @@
+<div class="blub-content">
+  <div class="bulb">
+    <p>Shutter</p>
+    <button (click)="setShutterTimeMode('SECONDS')" *ngIf="shutterTimeMode!=='SECONDS'" mat-button>Seconds</button>
+    <button (click)="setShutterTimeMode('SECONDS')" *ngIf="shutterTimeMode==='SECONDS'" mat-raised-button>Seconds</button>
+    <button (click)="setShutterTimeMode('MINUTES')" *ngIf="shutterTimeMode!=='MINUTES'" mat-button>Minutes</button>
+    <button (click)="setShutterTimeMode('MINUTES')" *ngIf="shutterTimeMode==='MINUTES'" mat-raised-button>Minutes</button>
+
+  </div>
+  <mat-slider [max]="100"
+              [min]="0"
+              [ngModel]="shutterTime"
+              thumbLabel="true">
+  </mat-slider>
+  <div class="start-cancel">
+    <button (click)="onShutterTime()" mat-raised-button>START</button>
+    <button (click)="onCancel()" mat-raised-button>CANCEL</button>
+  </div>
+</div>

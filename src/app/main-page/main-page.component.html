@@ -1,0 +1,22 @@
+<div class="main-page-content">
+  <div class="header">
+    <h3>EYECINE</h3>
+  </div>
+  <div class="body">
+    <div class="choose-mode">
+      <button (click)="setMode('TIMELAPSE')" mat-button>Timelapse</button>
+      <button (click)="setMode('BULB')" mat-button>Bulb</button>
+    </div>
+
+    <div *ngIf="mode==='TIMELAPSE'">
+      <app-time-lapse (onCancelTimeLapse)="cancelTimeLapse()"
+                      (onTimeLapseChange)="setTimeLapseConfig($event)">
+      </app-time-lapse>
+    </div>
+
+    <div *ngIf="mode==='BULB'">
+      <app-bulb (onCancelBlub)="cancelBulb()" (onShutterTimeChange)="setShutterTime($event)">
+      </app-bulb>
+    </div>
+  </div>
+</div>
