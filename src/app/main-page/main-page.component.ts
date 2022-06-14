@@ -21,19 +21,19 @@ export class MainPageComponent implements OnInit {
   }
 
   setTimeLapseConfig(timeLapse: TimeLapse) {
-    this.http.post('/time-lapse', {timeLapse: timeLapse}).subscribe();
+    this.http.post('/api/time-lapse', {timeLapse: timeLapse}).subscribe();
   }
 
   cancelTimeLapse() {
-    this.http.post('/time-lapse/cancel', {test: 'test'}).subscribe();
+    this.http.post('/api/time-lapse/cancel', {test: 'test'}).subscribe();
   }
 
   setShutterTime(bulb: Bulb) {
-    this.http.post('/bulb', {shutterTime: bulb}).subscribe();
+    this.http.post('/api/bulb', {shutterTime: bulb}).subscribe();
   }
 
   cancelBulb() {
-    this.http.post('/bulb/cancel', {test: 'test'}).subscribe();
+    this.http.post('/api/bulb/cancel', {test: 'test'}).subscribe();
   }
 
   onChange($event: number) {
