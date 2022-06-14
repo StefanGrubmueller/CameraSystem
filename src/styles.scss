@@ -3,6 +3,7 @@
 @include mat.core();
 
 $my-app-primary: mat.define-palette(mat.$grey-palette, 600, 600, 600);
+$my-app-secondary: mat.define-palette(mat.$grey-palette, 200, 200, 200);
 $my-app-accent: mat.define-palette(mat.$grey-palette, 600, 600, 600);
 $my-app-warn: mat.define-palette(mat.$red-palette);
 
@@ -10,6 +11,7 @@ $my-app-theme: mat.define-dark-theme(
     (
       color: (
         primary: $my-app-primary,
+        secondary: $my-app-secondary,
         accent: $my-app-accent,
         warn: $my-app-warn,
       ),

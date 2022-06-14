@@ -17,6 +17,7 @@ export class TimeLapseComponent implements OnInit {
   timeLapse: TimeLapse = {lengthInMinutes: null!, lengthInSeconds: null!, interval: null!};
   timeMode: TimeMode = 'SECONDS';
   intervallMode: TimeMode = 'SECONDS';
+  started = false;
 
   constructor() {
   }
@@ -49,9 +50,12 @@ export class TimeLapseComponent implements OnInit {
   }
 
   setTimeLapse() {
+    this.started = true;
     this.onTimeLapseChange.emit(this.timeLapse);
   }
   onCancel() {
+
+    this.started = false;
     this.onCancelTimeLapse.emit();
   }
 

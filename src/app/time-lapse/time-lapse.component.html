@@ -31,7 +31,8 @@
   </mat-slider>
 
   <div class="start-cancel">
-    <button (click)="setTimeLapse()" mat-raised-button>START</button>
-    <button (click)="onCancel()" mat-raised-button>CANCEL</button>
+    <button *ngIf="started===false" (click)="setTimeLapse()" mat-raised-button>START</button>
+    <button style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;"></button>
+    <button *ngIf="started===true" (click)="onCancel()" mat-raised-button>CANCEL</button>
   </div>
 </div>

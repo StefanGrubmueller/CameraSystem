@@ -8,7 +8,7 @@ import {Mode, TimeLapse} from "../mode";
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  mode: Mode | undefined;
+  mode: Mode = 'TIMELAPSE';
 
   constructor(private http: HttpClient) { }
 

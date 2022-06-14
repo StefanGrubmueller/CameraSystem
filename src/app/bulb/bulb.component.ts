@@ -12,6 +12,7 @@ export class BulbComponent implements OnInit {
 
   shutterTime: number = 0;
   shutterTimeMode: TimeMode = 'SECONDS';
+  started = false;
 
   constructor() {
   }
@@ -20,6 +21,7 @@ export class BulbComponent implements OnInit {
   }
 
   onShutterTime() {
+    this.started = true;
     this.onShutterTimeChange.emit(this.shutterTime);
   }
 
@@ -28,6 +30,7 @@ export class BulbComponent implements OnInit {
   }
 
   onCancel() {
+    this.started = false;
     this.onCancelBlub.emit();
   }
 
