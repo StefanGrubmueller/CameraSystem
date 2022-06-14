@@ -10,11 +10,9 @@ export class TimeLapseComponent implements OnInit {
 
   @Output() onCancelTimeLapse = new EventEmitter();
 
-  lengthInSeconds = 0;
-  lengthInMinutes = 0;
+  recordTime = 0;
   intervall = 0;
 
-  timeLapse: TimeLapse = {lengthInMinutes: null!, lengthInSeconds: null!, interval: null!};
   timeMode: TimeMode = 'SECONDS';
   intervallMode: TimeMode = 'SECONDS';
   started = false;
@@ -33,26 +31,15 @@ export class TimeLapseComponent implements OnInit {
     this.intervallMode = intervallMode;
   }
 
-  onTimeLapseLength(timeMode: TimeMode, timeLapseLength: number) {
-    if (timeMode === 'SECONDS') {
-      this.timeLapse.lengthInSeconds = timeLapseLength;
-      // @ts-ignore
-      this.timeLapse.lengthInMinutes = null;
-    } else if (timeMode === 'MINUTES') {
-      this.timeLapse.lengthInMinutes = timeLapseLength;
-      // @ts-ignore
-      this.timeLapse.lengthInSeconds = null;
-    }
-  }
-
-  onIntervall(intervall: number) {
-    this.timeLapse.interval = intervall;
-  }
 
   setTimeLapse() {
     this.started = true;
-    this.onTimeLapseChange.emit(this.timeLapse);
+    const timeLapse: TimeLapse = {
+      interval: this.intervall, length: this.recordTime, lengthMode: this.timeMode, intervallMode: this.intervallMode
+    }
+    this.onTimeLapseChange.emit(timeLapse);
   }
+
   onCancel() {
 
     this.started = false;

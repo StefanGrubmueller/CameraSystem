@@ -23,9 +23,8 @@
 
 
 .choose-mode {
-  background-color: #424242;
-  color: white;
   display: flex;
+  background-color: #424242;
   justify-content: space-around;
   align-items: center;
   text-transform: uppercase;
@@ -54,5 +53,6 @@
 }
 
 .mat-button {
+  color: white;
   font-weight: bolder;
 }
