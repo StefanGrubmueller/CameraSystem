@@ -1,17 +1,20 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {TimeMode} from "../mode";
+import {Bulb, TimeMode} from "../mode";
+
 
 @Component({
   selector: 'app-bulb', templateUrl: './bulb.component.html', styleUrls: ['./bulb.component.scss']
 })
+
 export class BulbComponent implements OnInit {
 
-  @Output() onShutterTimeChange = new EventEmitter<number>();
+  @Output() onShutterTimeChange = new EventEmitter<Bulb>();
 
   @Output() onCancelBlub = new EventEmitter();
 
   shutterTime: number = 0;
   shutterTimeMode: TimeMode = 'SECONDS';
+  started = false;
 
   constructor() {
   }
@@ -20,7 +23,11 @@ export class BulbComponent implements OnInit {
   }
 
   onShutterTime() {
-    this.onShutterTimeChange.emit(this.shutterTime);
+    this.started = true;
+    const bulb: Bulb = {
+      shutterTime: this.shutterTime, mode: this.shutterTimeMode
+    }
+    this.onShutterTimeChange.emit(bulb);
   }
 
   setShutterTimeMode(shutterTimeMode: TimeMode) {
@@ -28,8 +35,8 @@ export class BulbComponent implements OnInit {
   }
 
   onCancel() {
+    this.started = false;
     this.onCancelBlub.emit();
   }
-
 
 }

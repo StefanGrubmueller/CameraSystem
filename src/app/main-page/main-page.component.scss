@@ -23,10 +23,9 @@
 
 
 .choose-mode {
-  background-color: #424242;
-  color: white;
   display: flex;
-  justify-content: space-between;
+  background-color: #424242;
+  justify-content: space-around;
   align-items: center;
   text-transform: uppercase;
   margin-left: -2em;
@@ -45,4 +44,15 @@
     margin: 2em 0;
     flex: 1;
   }
+}
+
+.mat-raised-button {
+  background-color: white;
+  color: #424242;
+  font-weight: bolder;
+}
+
+.mat-button {
+  color: white;
+  font-weight: bolder;
 }

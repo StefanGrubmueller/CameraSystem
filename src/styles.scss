@@ -2,8 +2,8 @@
 
 @include mat.core();
 
-$my-app-primary: mat.define-palette(mat.$grey-palette, 600, 600, 600);
-$my-app-accent: mat.define-palette(mat.$grey-palette, 600, 600, 600);
+$my-app-primary: mat.define-palette(mat.$grey-palette, 200, 400, 800);
+$my-app-accent: mat.define-palette(mat.$grey-palette, 200, 400, 800);
 $my-app-warn: mat.define-palette(mat.$red-palette);
 
 $my-app-theme: mat.define-dark-theme(

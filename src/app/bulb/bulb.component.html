@@ -7,13 +7,15 @@
     <button (click)="setShutterTimeMode('MINUTES')" *ngIf="shutterTimeMode==='MINUTES'" mat-raised-button>Minutes</button>
 
   </div>
+  {{shutterTime}}
   <mat-slider [max]="100"
               [min]="0"
-              [ngModel]="shutterTime"
+              [(ngModel)]="shutterTime"
               thumbLabel="true">
   </mat-slider>
   <div class="start-cancel">
-    <button (click)="onShutterTime()" mat-raised-button>START</button>
-    <button (click)="onCancel()" mat-raised-button>CANCEL</button>
+    <button *ngIf="started===false"(click)="onShutterTime()" mat-raised-button>START</button>
+    <button style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;"></button>
+    <button *ngIf="started===true" (click)="onCancel()" mat-raised-button>CANCEL</button>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Mode, TimeLapse} from "../mode";
+import {Bulb, Mode, TimeLapse} from "../mode";
 
 @Component({
   selector: 'app-main-page',
@@ -8,7 +8,7 @@ import {Mode, TimeLapse} from "../mode";
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
-  mode: Mode | undefined;
+  mode: Mode = 'TIMELAPSE';
 
   constructor(private http: HttpClient) { }
 
@@ -28,8 +28,8 @@ export class MainPageComponent implements OnInit {
     this.http.post('/time-lapse/cancel', {test: 'test'}).subscribe();
   }
 
-  setShutterTime(shutterTime: number) {
-    this.http.post('/bulb', {shutterTime: shutterTime}).subscribe();
+  setShutterTime(bulb: Bulb) {
+    this.http.post('/bulb', {shutterTime: bulb}).subscribe();
   }
 
   cancelBulb() {

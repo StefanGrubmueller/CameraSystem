@@ -2,8 +2,13 @@ export type Mode = 'TIMELAPSE' | 'BULB';
 
 export type TimeLapse = {
   interval: number;
-  lengthInSeconds: number;
-  lengthInMinutes: number;
+  intervallMode: TimeMode;
+  length: number;
+  lengthMode: TimeMode;
 }
 
 export type TimeMode = 'SECONDS' | 'MINUTES';
+
+export type  Bulb = {
+  shutterTime: number; mode: TimeMode;
+};

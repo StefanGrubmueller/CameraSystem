@@ -9,6 +9,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {MatIconModule} from "@angular/material/icon";
     MatButtonModule,
     FormsModule,
     MatIconModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

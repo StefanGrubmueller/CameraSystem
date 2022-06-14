@@ -4,8 +4,10 @@
   </div>
   <div class="body">
     <div class="choose-mode">
-      <button (click)="setMode('TIMELAPSE')" mat-button>Timelapse</button>
-      <button (click)="setMode('BULB')" mat-button>Bulb</button>
+      <button (click)="setMode('TIMELAPSE')" *ngIf="mode==='TIMELAPSE'" mat-raised-button color="accent">Timelapse</button>
+      <button *ngIf="mode!=='TIMELAPSE'" (click)="setMode('TIMELAPSE')" mat-button>Timelapse</button>
+      <button *ngIf="mode!=='BULB'" (click)="setMode('BULB')" mat-button>BULB</button>
+      <button (click)="setMode('BULB')" *ngIf="mode==='BULB'" mat-raised-button>BULB</button>
     </div>
 
     <div *ngIf="mode==='TIMELAPSE'">
