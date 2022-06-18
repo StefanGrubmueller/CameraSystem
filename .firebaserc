@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "camera-system-frontend": {
+      "hosting": {
+        "CameraSystem": [
+          "camera-system-frontend"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "camera-system-frontend"
+  }
+}
