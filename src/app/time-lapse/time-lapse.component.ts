@@ -35,7 +35,7 @@ export class TimeLapseComponent implements OnInit {
   setTimeLapse() {
     this.started = true;
     const timeLapse: TimeLapse = {
-      interval: this.intervall, length: this.recordTime, lengthMode: this.timeMode, intervallMode: this.intervallMode
+      interval: this.intervall, length: this.recordTime, lengthMode: this.timeMode, intervalMode: this.intervallMode
     }
     this.onTimeLapseChange.emit(timeLapse);
   }

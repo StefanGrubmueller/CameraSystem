@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Bulb, Mode, TimeLapse} from "../mode";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-main-page',
@@ -10,7 +11,8 @@ import {Bulb, Mode, TimeLapse} from "../mode";
 export class MainPageComponent implements OnInit {
   mode: Mode = 'TIMELAPSE';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private firestore: AngularFirestore) {
+  }
 
 
   ngOnInit(): void {
@@ -21,19 +23,35 @@ export class MainPageComponent implements OnInit {
   }
 
   setTimeLapseConfig(timeLapse: TimeLapse) {
-    this.http.post('/api/time-lapse', {timeLapse: timeLapse}).subscribe();
+    this.firestore.doc(`Jakob/Timelapse`).update({
+      status: true,
+      interval: timeLapse.interval,
+      intervalMode: timeLapse.intervalMode,
+      length: timeLapse.length,
+      lengthMode: timeLapse.lengthMode
+    });
+    this.firestore.doc(`Jakob/Bulb`).update({
+      status: false
+    });
   }
 
   cancelTimeLapse() {
-    this.http.post('/api/time-lapse/cancel', {test: 'test'}).subscribe();
+    this.firestore.doc(`Jakob/Bulb`).update({
+      status: false
+    });
   }
 
   setShutterTime(bulb: Bulb) {
-    this.http.post('/api/bulb', {shutterTime: bulb}).subscribe();
+    this.firestore.doc(`Jakob/Bulb`).update({status: true, shutterTime: bulb.shutterTime, mode: bulb.mode});
+    this.firestore.doc(`Jakob/Timelapse`).update({
+      status: false
+    });
   }
 
   cancelBulb() {
-    this.http.post('/api/bulb/cancel', {test: 'test'}).subscribe();
+    this.firestore.doc(`Jakob/Bulb`).update({
+      status: false
+    });
   }
 
   onChange($event: number) {
