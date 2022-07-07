@@ -2,7 +2,7 @@ export type Mode = 'TIMELAPSE' | 'BULB';
 
 export type TimeLapse = {
   interval: number;
-  intervallMode: TimeMode;
+  intervalMode: TimeMode;
   length: number;
   lengthMode: TimeMode;
 }
